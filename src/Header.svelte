@@ -2,8 +2,12 @@
   import Icon from "fa-svelte";
   import { faBeer } from "@fortawesome/free-solid-svg-icons/faBeer";
   import { Link } from "@c0ldra1n/svero";
+  import { beers } from "./stores";
+  import { onDestroy } from "svelte";
 
-  const beerIcon = faBeer;
+  let numberOfBeers;
+  const beerSubscription = beers.subscribe(val => (numberOfBeers = val.length));
+  onDestroy(beerSubscription);
 </script>
 
 <style>
@@ -44,16 +48,17 @@
   <nav>
     <Link class="logolink" href="/index">
       <span class="logo">
-        <Icon icon={beerIcon} />
+        <Icon icon={faBeer} />
         <span class="logotext">Ölski</span>
       </span>
     </Link>
     <ul>
       <li>
-        <Link href="/index">Slumpa öl</Link>
+        <Link href="/index">Hitta öl</Link>
       </li>
       <li>
         <Link href="/fridge">Kylskåp</Link>
+        ({numberOfBeers})
       </li>
     </ul>
   </nav>

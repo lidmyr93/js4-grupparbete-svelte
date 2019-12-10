@@ -1,24 +1,36 @@
 <script>
-  import { onMount } from "svelte";
+  import Spinner from "../Spinner.svelte";
+  import BeerInfo from "../BeerInfo.svelte";
+  import { getBeer } from "../utils/api-utils";
+  import { beers } from "../stores";
+  import { setContext } from "svelte";
 
-  let beer = {};
-
-  const getRandomBeer = async () => {
-    return fetch("https://api.punkapi.com/v2/beers/random")
-      .then(res => (res.status === 200 ? res.json() : new Error()))
-      .then(data => {
-        beer.imgUrl = data[0].image_url;
-        console.log(beer);
-      })
-      .catch("Något gick fel");
-  };
-
-  onMount(getRandomBeer);
+  let getRandomBeer = getBeer();
+  const addBeer = beer => beers.update(n => [beer, ...n]);
 </script>
 
 <style>
-
+  .container {
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 50vh;
+  }
 </style>
 
-<h1>Öl</h1>
-<img src={beer.imgUrl} alt="" />
+<div class="container">
+
+  {#await getRandomBeer}
+    <Spinner />
+  {:then res}
+    <div>
+      <button on:click={() => (getRandomBeer = getBeer())}>Slumpa ny öl</button>
+      <button on:click={() => addBeer(res)}>Spara öl</button>
+    </div>
+    <BeerInfo data={res} />
+  {:catch err}
+    <p>{err.error}</p>
+  {/await}
+
+</div>
