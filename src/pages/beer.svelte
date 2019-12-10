@@ -8,7 +8,7 @@
   export let router = {};
   router.params;
   const id = Number(router.params.id);
-  const beer = get(beers).find(beer => beer.id === id); 
+  const beer = get(beers).beers.find(beer => beer.id === id); 
 </script>
 
 <style>
