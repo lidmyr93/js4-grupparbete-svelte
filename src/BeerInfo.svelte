@@ -9,23 +9,25 @@
     ibu,
     first_brewed: firstBrewed
   } = data;
-  const noImg = "noimage.svg";
+  const noImg = "../noimage.svg";
 </script>
 
 <style>
   .beer-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: 50px;
     grid-gap: 50px;
-    border: 2px solid #000;
-    border-radius: 10px;
+    padding: 50px;
     width: 100%;
     height: 100%;
+    background-color: #fafafa;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(125, 125, 125, 0.12), 
+                0 2px 2px rgba(125,125,125, 0.12);
   }
   .beer-image {
     display: block;
-    max-height: 65vh;
+    max-height: 50vh;
     max-width: 100%;
     justify-self: center;
   }

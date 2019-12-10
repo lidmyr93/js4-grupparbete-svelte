@@ -6,7 +6,7 @@
   import { onDestroy } from "svelte";
 
   let numberOfBeers;
-  const beerSubscription = beers.subscribe(val => (numberOfBeers = val.length));
+  const beerSubscription = beers.subscribe(val => (numberOfBeers = val.beers.length));
   onDestroy(beerSubscription);
 </script>
 
@@ -30,6 +30,7 @@
     justify-content: space-between;
   }
   .logotext {
+    font-family: 'Lilita One', cursive;
     margin-left: 24px;
   }
   ul {
@@ -39,8 +40,11 @@
     align-items: center;
     font-size: 2em;
     padding-left: 0;
-    width: 30%;
-    margin-top: 0;
+    margin: 0;
+  }
+  li:not(:last-of-type):after { 
+    content: '|'; 
+    margin: 0 10px;
   }
 </style>
 
@@ -49,15 +53,15 @@
     <Link class="logolink" href="/index">
       <span class="logo">
         <Icon icon={faBeer} />
-        <span class="logotext">Ölski</span>
+        <span class="logotext">Brewdog Beer Collector</span>
       </span>
     </Link>
     <ul>
       <li>
-        <Link href="/index">Hitta öl</Link>
+        <Link href="/index">Find beers</Link>
       </li>
       <li>
-        <Link href="/fridge">Kylskåp</Link>
+        <Link href="/fridge">Fridge</Link>
         ({numberOfBeers})
       </li>
     </ul>
