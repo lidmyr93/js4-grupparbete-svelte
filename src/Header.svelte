@@ -1,0 +1,61 @@
+<script>
+  import Icon from "fa-svelte";
+  import { faBeer } from "@fortawesome/free-solid-svg-icons/faBeer";
+  import { Link } from "@c0ldra1n/svero";
+
+  const beerIcon = faBeer;
+</script>
+
+<style>
+  header {
+    margin: 0 auto;
+    padding-top: 24px;
+    max-width: 1000px;
+  }
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .logo {
+    color: gold;
+    font-size: 5em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logotext {
+    margin-left: 24px;
+  }
+  ul {
+    display: flex;
+    list-style-type: none;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 2em;
+    padding-left: 0;
+    width: 30%;
+    margin-top: 0;
+  }
+</style>
+
+<header>
+  <nav>
+    <Link class="logolink" href="/index">
+      <span class="logo">
+        <Icon icon={beerIcon} />
+        <span class="logotext">Ölski</span>
+      </span>
+    </Link>
+    <ul>
+      <li>
+        <Link href="/index">Slumpa öl</Link>
+      </li>
+      <li>
+        <Link href="/fridge">Kylskåp</Link>
+      </li>
+    </ul>
+  </nav>
+  <hr />
+</header>
