@@ -2,7 +2,7 @@
   import Icon from "fa-svelte";
   import { faBeer } from "@fortawesome/free-solid-svg-icons/faBeer";
   import { Link } from "@c0ldra1n/svero";
-  import { beers } from "./stores";
+  import { beers } from "../stores";
   import { onDestroy } from "svelte";
 
   let numberOfBeers;
