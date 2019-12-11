@@ -1,5 +1,5 @@
 <script>
-  import FridgeItem from "../FridgeItem.svelte";
+  import FridgeItem from "../components/FridgeItem.svelte";
   import { beers } from "../stores";
   import { onDestroy } from "svelte";
 

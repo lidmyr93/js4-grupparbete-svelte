@@ -5,3 +5,5 @@ export const getBeer = (id = "random") =>
       .then(data => resolve(data[0]))
       .catch(() => reject({ error: "Something went wrong, please try again!" }));
   });
+
+export default getBeer;

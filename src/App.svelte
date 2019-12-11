@@ -3,7 +3,7 @@
   import index from "./pages/index.svelte";
   import fridge from "./pages/fridge.svelte";
   import beer from "./pages/beer.svelte";
-  import Header from "./Header.svelte";
+  import Header from "../components/Header.svelte";
 </script>
 
 <style>

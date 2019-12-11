@@ -1,7 +1,7 @@
 <script>
   import Spinner from "../Spinner.svelte";
-  import BeerInfo from "../BeerInfo.svelte";
-  import Button from "../Button.svelte";
+  import BeerInfo from "../components/BeerInfo.svelte";
+  import Button from "../components/Button.svelte";
   import { get } from "svelte/store";
   import { beers } from "../stores";
 
